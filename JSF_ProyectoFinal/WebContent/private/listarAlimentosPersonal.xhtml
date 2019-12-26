@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<p:graphicImage library="imagenes" name="logo2.png" width="150" />
+	<h:outputStylesheet library="css" name="Tabla.css" />
+	<p:messages autoUpdate="true" />
+
+	<h1>LISTA DE ALIMENTOS</h1>
+</h:head>
+
+<h:body>
+
+	<f:view>
+		<h:form id="form">
+
+			<p:growl id="mensajes" autoUpdate="true" />
+
+			<p:dataTable id="tblAlimentos" value="#{alimentoBean.listaAlimentos()}"
+				emptyMessage="No existen datos que coincidan con el filtro" rows="10" rowsPerPageTemplate="5, 10, 15" paginator="true" resizableColumns="true" var="al">
+
+				<p:column headerText="Nombre" filterBy="#{al.nombre}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{al.nombre}" />
+				</p:column>
+
+				<p:column headerText="Valor por Porción">
+					<p:outputLabel value="#{al.valorPorPorcion}" />
+				</p:column>
+
+				<p:column headerText="Calorías">
+					<p:outputLabel value="#{al.calorias}" />
+				</p:column>
+
+				<p:column headerText="Valor Energético">
+					<p:outputLabel value="#{al.valorEnergetico}" />
+				</p:column>
+
+				<p:column headerText="Azúcar">
+					<p:outputLabel value="#{al.azucar}" />
+				</p:column>
+
+				<p:column headerText="Cloruro de Sodio">
+					<p:outputLabel value="#{al.cloruroDeSodio}" />
+				</p:column>
+
+				<p:column headerText="Grasas Trans">
+					<p:outputLabel value="#{al.grasasTrans}" />
+				</p:column>
+
+				<p:column headerText="Grasas Saturadas">
+					<p:outputLabel value="#{al.grasasSaturadas}" />
+				</p:column>					
+			</p:dataTable>
+		</h:form>
+	</f:view>
+	
+	<div align="left">
+	
+	<p:button value="Volver a inicio" outcome="inicioPersonal" style="margin: 20px"></p:button>
+	
+	</div>
+</h:body>
+</html>

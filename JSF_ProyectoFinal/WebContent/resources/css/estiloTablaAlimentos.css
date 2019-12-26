@@ -1,0 +1,46 @@
+body{
+	background-color: #FFE4C4
+}
+
+table{	
+	background-color: white;
+	text-align: left;
+	width: 100%;		
+}
+
+th, td{
+	padding: 20px;	
+}
+
+th{
+	
+	background-color: #DEB887;
+	border-bottom: solid 5px #DEB887;
+	color: white;
+}
+
+tr:nth-child(even){	
+	background-color: #ddd;
+}
+
+tr:hover{
+	
+	background-color: #F4C7B7;
+}
+
+h1{
+	
+	font-family: "Courier New";
+	font-size: 30px;	
+	text-align: center;
+}
+
+h2{
+	font-family: "Courier New";
+	font-size: 30px;	
+	text-align: center;
+	color: black;
+	letter-spacing: 2px;
+	text-decoration: underline;
+}
+}

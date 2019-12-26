@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+
+	<title>Ingreso nuevo Usuario</title>
+</h:head>
+
+	
+	<h:form id="ingresoUsuarioForm" class="form-horizontal">
+		<h:outputStylesheet library="css" name="IngresoForm.css" />
+		<p:messages autoUpdate="true" />
+	<div align="center">
+	<p:graphicImage library="imagenes" name="logo.png" width="100" />
+	
+
+		<h:panelGrid columns="2" style="margin-bottom:2px" cellpadding="5">
+		
+			<!--				CI												-->
+			<h4>CI</h4>
+			<p:inputText id="ci" value="#{usuarioBean.ci}" required="true"
+				requiredMessage="Este campo es obligatorio: CI"
+				validatorMessage="Formato incorrecto en campo CI: Sin espacios y sólo números">
+				<f:validateRegex pattern="^\d+(\-\d+)*$"></f:validateRegex>
+			</p:inputText>
+
+
+			<!--				Nombre			
+			Utilizamos exprexiones regulares para evitar errores en el ingreso de texto	a lo largo de todo el formulario		
+			-->
+
+			<h4>Nombre</h4>
+			<p:inputText id="nombre" value="#{usuarioBean.nombre}" required="true"
+				requiredMessage="Este campo es obligatorio: Nombre"
+				validatorMessage="Sólo ingrese su primer nombre sin espacios">
+				<f:validateRegex pattern="^[a-zA-Z\u00C0-\u017F]*$"></f:validateRegex>
+			</p:inputText>
+
+			<!--				Apellido												-->
+			<h4>Apellido</h4>
+			<p:inputText id="apellido" value="#{usuarioBean.apellido}"
+				required="true"
+				requiredMessage="Este campo es obligatorio: Apellido"
+				validatorMessage="Solo ingrese su primer apellido sin espacios">
+				<f:validateRegex pattern="^[a-zA-Z\u00C0-\u017F]*$"></f:validateRegex>
+			</p:inputText>
+
+			<!--			Género									-->
+			<h4>Género</h4>
+			<p:selectOneMenu value="#{usuarioBean.genero}">
+				<f:selectItem itemLabel="MASCULINO" itemValue="MASCULINO" />
+				<f:selectItem itemLabel="FEMENINO" itemValue="FEMENINO" />
+			</p:selectOneMenu>
+
+
+			<!--			Contraseña									-->
+			<h4>Contraseña</h4>
+			<p:password id="contrasena" value="#{usuarioBean.contrasena}"
+				weakLabel="Débil" goodLabel="Buena"
+				promptLabel="Por favor ingrese una contraseña" inline="true"
+				strongLabel="Fuerte" feedback="true" required="true"
+				requiredMessage="Este campo es obligatorio: Contraseña"
+				maxlength="16" validatorMessage="La contraseña debe tener minimo 8 caracteres y maximo 16">				
+				<f:validateLength minimum="8"/>
+				</p:password>
+
+
+			<!--			Email									-->
+
+			<h4>Email</h4>
+			<p:inputText id="email" value="#{usuarioBean.email}" required="true"
+				requiredMessage="Este campo es obligatorio: Email"
+				title="El mail cabeza"
+				validatorMessage="El formato del mail ingresado es incorrecto">
+				<f:validateRegex
+					pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"></f:validateRegex>
+			</p:inputText>
+
+
+
+			<!--			Rol									-->
+
+
+			<p:growl id="mensajes" autoUpdate="true">
+			</p:growl>
+
+			<!--  Combobox de roles, en el bean de usuario manejo los ID dependiendo de qué rol sea   -->
+			<h4>Rol</h4>
+			<p:selectOneMenu value="#{usuarioBean.rolNombre}">
+				<f:selectItem itemValue="ADMINISTRADOR" itemLabel="ADMINISTRADOR" />				
+				<f:selectItem itemValue="PERSONAL_INSTITUCION"
+					itemLabel="PERSONAL_INSTITUCION" />
+			</p:selectOneMenu>
+			<!--			Fecha de Nacimiento									-->
+
+
+
+			<h4>Fecha de Nacimiento</h4>
+			<p:calendar id="fechaNacimiento" value="#{usuarioBean.fechaNacimiento}"
+				yearRange="c-100:c" navigator="true" pattern="dd-MM-yyyy"
+			    requiredMessage="Este campo no puede quedar vacío: Fecha Nacimiento"
+				converterMessage="Error en formato de fecha: Fecha nacimiento"
+				maxdate="today"
+				required="true" readonlyInput="true" showOn="button"></p:calendar>
+
+
+		</h:panelGrid>
+
+		<p:commandButton id="botonGuardar" value="Guardar Usuario"
+			action="#{usuarioBean.crearUsuarioPersonal()}" icon="pi pi-save" ajax="false" >
+		</p:commandButton>
+		
+		<p:button value="Volver a inicio" outcome="inicioPersonal" style="margin: 20px"></p:button>
+
+	</div>
+
+	</h:form>
+
+</html>

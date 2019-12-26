@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet library="css" name="IngresoForm.css" />
+</h:head>
+<body>
+	<div align="center">
+		<p:graphicImage library="imagenes" name="logo.png" width="120" />
+
+		<h2>Documento y/o Nombre de usuario ya existen en base de datos:</h2>
+		<h3>Documento: #{usuarioBean.ci}</h3>
+		<p:separator/>
+		<h3>Nombre de Usuario: #{usuarioBean.usuario}</h3>
+
+		<p:button value="Volver a la página anterior"
+			outcome="ingresoUsuarioPersonal"></p:button>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+ <navigation-rule>
+  <from-view-id>/login/login.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>inicioAdministrador</from-outcome>
+   <to-view-id>/login/inicioAdministrador.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>inicioPersonal</from-outcome>
+   <to-view-id>/login/inicioPersonal.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/login/inicioAdministrador.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>ingresoUsuario</from-outcome>
+   <to-view-id>/ingresoUsuario.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>ingresoAlimento</from-outcome>
+   <to-view-id>/ingresoAlimento.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>logout</from-outcome>
+   <to-view-id>/logout.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>envioMail</from-outcome>
+   <to-view-id>/envioMail.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/login/inicioPersonal.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>ingresoUsuario</from-outcome>
+   <to-view-id>/ingresoUsuario.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>ingresoAlimento</from-outcome>
+   <to-view-id>/ingresoAlimento.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>logout</from-outcome>
+   <to-view-id>/logout.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <application/>
+</faces-config>

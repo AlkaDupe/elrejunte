@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#login#login.xhtml" PATH="/login/login.xhtml"
+  SHAPE="104,184,50,57" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#login#login.xhtml:0" NAME="item"
+   PATH="/login/login.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="inicioAdministrador::#login#inicioAdministrador.xhtml"
+    NAME="output" PATH="/login/inicioAdministrador.xhtml"
+    TARGET="rules:#login#inicioAdministrador.xhtml"
+    TITLE="inicioAdministrador" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="inicioPersonal::#login#inicioPersonal.xhtml"
+    NAME="output1" PATH="/login/inicioPersonal.xhtml"
+    TARGET="rules:#login#inicioPersonal.xhtml" TITLE="inicioPersonal" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#login#inicioAdministrador.xhtml"
+  PATH="/login/inicioAdministrador.xhtml" SHAPE="400,176,50,57" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#login#inicioAdministrador.xhtml:0"
+   NAME="item" PATH="/login/inicioAdministrador.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="ingresoUsuario::#ingresoUsuario.xhtml"
+    NAME="output" PATH="/ingresoUsuario.xhtml"
+    TARGET="rules:#ingresoUsuario.xhtml" TITLE="ingresoUsuario" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="ingresoAlimento::#ingresoAlimento.xhtml"
+    NAME="output1" PATH="/ingresoAlimento.xhtml"
+    TARGET="rules:#ingresoAlimento.xhtml" TITLE="ingresoAlimento" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="logout::#logout.xhtml" NAME="output2"
+    PATH="/logout.xhtml" TARGET="rules:#logout.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="envioMail::#envioMail.xhtml" NAME="output3"
+    PATH="/envioMail.xhtml" TARGET="rules:#envioMail.xhtml"
+    TITLE="envioMail" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#ingresoUsuario.xhtml"
+  PATH="/ingresoUsuario.xhtml" SHAPE="680,128,50,25"
+  model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#login#inicioPersonal.xhtml"
+  PATH="/login/inicioPersonal.xhtml" SHAPE="400,256,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#login#inicioPersonal.xhtml:0" NAME="item"
+   PATH="/login/inicioPersonal.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="ingresoUsuario::#ingresoUsuario.xhtml"
+    NAME="output" PATH="/ingresoUsuario.xhtml"
+    TARGET="rules:#ingresoUsuario.xhtml" TITLE="ingresoUsuario" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="ingresoAlimento::#ingresoAlimento.xhtml"
+    NAME="output1" PATH="/ingresoAlimento.xhtml"
+    TARGET="rules:#ingresoAlimento.xhtml" TITLE="ingresoAlimento" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="logout::#logout.xhtml" NAME="output2"
+    PATH="/logout.xhtml" TARGET="rules:#logout.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#ingresoAlimento.xhtml"
+  PATH="/ingresoAlimento.xhtml" SHAPE="656,376,50,25"
+  model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#logout.xhtml" PATH="/logout.xhtml"
+  SHAPE="728,288,50,25" model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#envioMail.xhtml" PATH="/envioMail.xhtml"
+  SHAPE="624,40,50,25" model-entity="JSFProcessGroup" persistent="true"/>
+</PROCESS>

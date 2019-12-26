@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<p:graphicImage library="imagenes" name="logo2.png" width="150" />
+	<h:outputStylesheet library="css" name="Tabla.css" />
+	<p:messages autoUpdate="true" />
+
+	<h1>LISTA DE ALIMENTOS</h1>
+</h:head>
+
+<h:body>
+
+	<f:view>
+		<h:form id="form">
+
+			<p:growl id="mensajes" autoUpdate="true" />
+
+			<p:dataTable id="tblAlimentos" value="#{alimentoBean.listaAlimentos()}"
+				emptyMessage="No existen datos que coincidan con el filtro" rows="10" rowsPerPageTemplate="5, 10, 15" paginator="true" resizableColumns="true" var="al">
+
+				<p:column headerText="Nombre" filterBy="#{al.nombre}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{al.nombre}" />
+				</p:column>
+
+				<p:column headerText="Valor por Porción">
+					<p:outputLabel value="#{al.valorPorPorcion}" />
+				</p:column>
+
+				<p:column headerText="Calorías">
+					<p:outputLabel value="#{al.calorias}" />
+				</p:column>
+
+				<p:column headerText="Valor Energético">
+					<p:outputLabel value="#{al.valorEnergetico}" />
+				</p:column>
+
+				<p:column headerText="Azúcar">
+					<p:outputLabel value="#{al.azucar}" />
+				</p:column>
+
+				<p:column headerText="Cloruro de Sodio">
+					<p:outputLabel value="#{al.cloruroDeSodio}" />
+				</p:column>
+
+				<p:column headerText="Grasas Trans">
+					<p:outputLabel value="#{al.grasasTrans}" />
+				</p:column>
+
+				<p:column headerText="Grasas Saturadas">
+					<p:outputLabel value="#{al.grasasSaturadas}" />
+				</p:column>
+
+				<p:column headerText="Modificar">
+					<p:commandButton value="Modificar"
+						actionListener="#{alimentoBean.buscarPorCI(al)}"
+						oncomplete="PF('wdgDatosAlimento').show();"
+						update=":dlgDatosAlimento"></p:commandButton>
+				</p:column>
+
+				<p:column headerText="Eliminar">
+					<p:commandButton value="Eliminar"
+						actionListener="#{alimentoBean.borrarAlimento(al.id)}"
+						update="tblAlimentos">
+
+						<p:confirm header="Confirmar eliminación de datos"
+							message="¿Está seguro que desea eliminar el alimento #{al.nombre}?"
+							icon="pi pi-exclamation-triangle">
+						</p:confirm>
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+			
+			<p:button value="Volver a inicio" outcome="inicioAdministrador" style="margin: 20px"></p:button>
+			
+		</h:form>
+	</f:view>
+
+
+	<h:form>
+
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+			<p:commandButton value="Si" type="button"
+				styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+			<p:commandButton value="No" type="button"
+				styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+		</p:confirmDialog>
+
+	</h:form>
+
+	
+	<p:dialog header="Datos Alimento" widgetVar="wdgDatosAlimento"
+		id="dlgDatosAlimento" showEffect="true">
+		
+			<h:form>
+			
+			<p:messages autoUpdate="true" />
+
+				<h4>Nombre:</h4>
+				<p:inputText id="nombre" value="#{alimentoBean.al.nombre}"
+					required="true" maxlength="200"
+					requiredMessage="Este campo es obligatorio: Nombre"
+					style="text-transform:uppercase;">					
+				</p:inputText>
+
+
+
+				<h4>Valor por Porción:</h4>
+				<p:inputNumber id="valorPorPorcion" decimalPlaces="2"
+					decimalSeparator="," thousandSeparator="." maxlength="10"
+					value="#{alimentoBean.al.valorPorPorcion}" required="true"
+					validatorMessage="Valor por Porción: No se puede ingresar un valor inferior a 0"
+					requiredMessage="Este campo es Obligatorio: Valor por porcion">
+					<f:validateLongRange minimum="0"/>	
+				</p:inputNumber>
+
+
+				<h4>Calorías:</h4>
+				<p:inputNumber id="calorias" value="#{alimentoBean.al.calorias}"
+					decimalPlaces="2" decimalSeparator="," thousandSeparator="."
+					maxlength="10" required="true"
+					validatorMessage="Calorías: No se puede ingresar un valor inferior a 0"
+					requiredMessage="Este campo es Obligatorio: Calorias">
+					<f:validateLongRange minimum="0"/>	
+				</p:inputNumber>
+
+
+				<h4>Valor Energético:</h4>
+				<p:inputNumber id="valorEnergetico" decimalPlaces="2"
+					decimalSeparator="," thousandSeparator="." maxlength="10"
+					value="#{alimentoBean.al.valorEnergetico}" required="true"
+					validatorMessage="Valor Energético: No se puede ingresar un valor inferior a 0"
+					requiredMessage="Este campo es Obligatorio:Valor Energetico">
+					<f:validateLongRange minimum="0"/>	
+				</p:inputNumber>
+
+
+				<h4>Azúcar:</h4>
+				<p:inputNumber id="azucar" value="#{alimentoBean.al.azucar}"
+					required="true" decimalPlaces="2" decimalSeparator=","
+					thousandSeparator="." maxlength="4"
+					validatorMessage="Azúcar: No se puede ingresar un valor inferior a 0"
+					requiredMessage="Este campo es Obligatorio: Azucar">
+					<f:validateLongRange minimum="0"/>	
+				</p:inputNumber>
+
+
+				<h4>Cloruro de Sodio:</h4>
+				<p:inputNumber id="cloruroDeSodio"
+					value="#{alimentoBean.al.cloruroDeSodio}" decimalPlaces="2"
+					decimalSeparator="," thousandSeparator="." maxlength="4"
+					required="true"
+					validatorMessage="Cloruro de Sodio: No se puede ingresar un valor inferior a 0"
+					requiredMessage="Este campo es Obligatorio: Cloruro de Sodio">
+					<f:validateLongRange minimum="0"/>	
+				</p:inputNumber>
+
+
+				<h4>Grasas Trans:</h4>
+				<p:inputNumber id="grasasTrans" value="#{alimentoBean.al.grasasTrans}"
+					decimalPlaces="2" decimalSeparator="," thousandSeparator="."
+					maxlength="4" required="true"
+					validatorMessage="Grasas Trans: No se puede ingresar un valor inferior a 0"
+					requiredMessage="Este campo es Obligatorio: Grasas Trans">
+					<f:validateLongRange minimum="0"/>	
+				</p:inputNumber>
+
+
+				<h4>Grasas Saturadas</h4>
+				<p:inputNumber id="grasasSaturadas" decimalPlaces="2"
+					decimalSeparator="," thousandSeparator="." maxlength="10"
+					value="#{alimentoBean.al.grasasSaturadas}" required="true"
+					requiredMessage="Este campo es Obligatorio: Grasas Saturadas"
+					validatorMessage="Grasas Saturadas: No se puede ingresar un valor inferior a 0">
+					<f:validateLongRange minimum="0" />						
+				</p:inputNumber>
+
+				<p:commandButton value="Actualizar"
+					actionListener="#{alimentoBean.modificarAlimento()}"
+					update=":form:tblAlimentos" />
+
+				<p:commandButton value="Cancelar" immediate="true"
+					onclick="PF('wdgDatosAlimento').hide();" />
+
+			</h:form>
+		
+	</p:dialog>
+
+
+	<p:dialog id="aliActualizado" widgetVar="waActualizado" header="Aviso">
+		<p:outputLabel value="Alimento actualizado correctamente" />
+		<br />
+		<p:commandButton value="Aceptar" icon="ui-icon-check"
+			onclick="PF('waActualizado').hide();" />
+
+	</p:dialog>
+	
+	<p:dialog id="aliDuplicado" widgetVar="waDuplicado" header="Aviso">
+		<p:outputLabel value="Alimento ya existe!" />
+		<br />
+		<p:commandButton value="Aceptar" icon="ui-icon-check"
+			onclick="PF('waDuplicado').hide();" />
+
+	</p:dialog>
+
+</h:body>
+</html>

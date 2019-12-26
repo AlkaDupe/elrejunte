@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+	<title>Ingreso Alimento</title>
+
+</h:head>
+
+<h:form id="crearAlimentoForm" class="form-horizontal">
+	<h:outputStylesheet library="css" name="IngresoForm.css" />
+	<p:messages autoUpdate="true" />
+	<div align="center">
+		<p:graphicImage library="imagenes" name="logo.png" width="100" />
+
+		<h2>Ingreso Alimento</h2>
+		
+		<h:panelGrid columns="2" style="margin-bottom:2px" cellpadding="5">
+			<h4>Nombre:</h4>
+			<p:inputText id="nombre" value="#{alimentoBean.nombre}"
+				required="true" maxlength="200"
+				style="text-transform:uppercase;"								
+				requiredMessage="Este campo es obligatorio: Nombre">				
+			</p:inputText>
+
+			<h4>Valor por Porción:</h4>
+			<p:inputNumber id="valorPorPorcion" decimalPlaces="2"
+				decimalSeparator="," thousandSeparator="." maxlength="10"
+				value="#{alimentoBean.valorPorPorcion}" required="true"
+				validatorMessage="Valor por Porción: El dato ingresado es menor a 0"
+				requiredMessage="Este campo es Obligatorio: Valor por porcion">
+				<f:validateLongRange minimum="0"/>	
+			</p:inputNumber>
+
+			<h4>Calorías:</h4>
+			<p:inputNumber id="calorias" value="#{alimentoBean.calorias}"
+				decimalPlaces="2" decimalSeparator="," thousandSeparator="."
+				maxlength="10" required="true"
+				validatorMessage="Calorías: El dato ingresado es menor a 0"
+				requiredMessage="Este campo es Obligatorio: Calorias">
+				<f:validateLongRange minimum="0"/>	
+			</p:inputNumber>
+
+			<h4>Valor Energético:</h4>
+			<p:inputNumber id="valorEnergetico" decimalPlaces="2"
+				decimalSeparator="," thousandSeparator="." maxlength="10"
+				value="#{alimentoBean.valorEnergetico}" required="true"
+				validatorMessage="Valor energético: El dato ingresado es menor a 0"
+				requiredMessage="Este campo es Obligatorio:Valor Energetico">
+				<f:validateLongRange minimum="0"/>	
+			</p:inputNumber>
+
+			<h4>Azúcar:</h4>
+			<p:inputNumber id="azucar" value="#{alimentoBean.azucar}"
+				required="true" decimalPlaces="2" decimalSeparator=","
+				thousandSeparator="." maxlength="4"
+				validatorMessage="Azúcar: El dato ingresado es menor a 0"
+				requiredMessage="Este campo es Obligatorio: Azucar">
+				<f:validateLongRange minimum="0"/>	
+			</p:inputNumber>
+
+			<h4>Cloruro de Sodio:</h4>
+			<p:inputNumber id="cloruroDeSodio"
+				value="#{alimentoBean.cloruroDeSodio}" decimalPlaces="2"
+				decimalSeparator="," thousandSeparator="." maxlength="4"
+				required="true"
+				validatorMessage="Cloruro de Sodio: El dato ingresado es menor a 0"
+				requiredMessage="Este campo es Obligatorio: Cloruro de Sodio">
+				<f:validateLongRange minimum="0"/>	
+			</p:inputNumber>
+
+			<h4>Grasas Trans:</h4>
+			<p:inputNumber id="grasasTrans" value="#{alimentoBean.grasasTrans}"
+				decimalPlaces="2" decimalSeparator="," thousandSeparator="."
+				maxlength="4" required="true"
+				validatorMessage="Grasas Trans: El dato ingresado es menor a 0"
+				requiredMessage="Este campo es Obligatorio: Grasas Trans">
+				<f:validateLongRange minimum="0"/>	
+			</p:inputNumber>
+
+			<h4>Grasas Saturadas</h4>
+			<p:inputNumber id="grasasSaturadas" decimalPlaces="2"
+				decimalSeparator="," thousandSeparator="." maxlength="10"
+				value="#{alimentoBean.grasasSaturadas}" required="true"
+				validatorMessage="Grasas Saturadas: El dato ingresado es menor a 0"
+				requiredMessage="Este campo es Obligatorio: Grasas Saturadas">
+				<f:validateLongRange minimum="0"/>	
+			</p:inputNumber>
+		</h:panelGrid>
+
+		<p:commandButton id="botonGuardar" value="Guardar Alimento"
+			action="#{alimentoBean.crearAlimento()}" style="margin-right:20px;"
+			icon="pi pi-save" ajax="false"></p:commandButton>
+
+		<p:button value="Volver a inicio" outcome="inicioAdministrador"
+			style="margin: 20px"></p:button>
+
+	</div>
+
+</h:form>
+
+</html>

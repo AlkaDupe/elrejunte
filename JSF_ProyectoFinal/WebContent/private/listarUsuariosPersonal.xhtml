@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+	<p:graphicImage library="imagenes" name="logo2.png" width="150" />
+	<h:outputStylesheet library="css" name="Tabla.css" />
+	<p:messages autoUpdate="true" />
+	
+	<h1>LISTA DE USUARIOS</h1>
+</h:head>
+
+<h:body>
+
+
+	<f:view>
+		<h:form id="form">
+
+		<p:growl id="mensajes" autoUpdate="true"/>
+
+
+			<p:dataTable id="tblPersonas" value="#{usuarioBean.listaUsuarios()}" emptyMessage="No existen datos que coincidan con el filtro" 
+					rowsPerPageTemplate="5, 10, 15" rows="10" paginator="true" resizableColumns="true"
+						var="usu">
+	
+				<p:column headerText="CI" filterBy="#{usu.ci}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{usu.ci}" />
+				</p:column>
+				<p:column headerText="Nombre">
+					<p:outputLabel value="#{usu.nombre}" />
+				</p:column>
+				<p:column headerText="Apellido">
+					<p:outputLabel value="#{usu.apellido}" />
+				</p:column>
+
+				<p:column headerText="Género">
+					<p:outputLabel value="#{usu.genero}" />
+				</p:column>
+
+				<p:column headerText="Correo">
+					<p:outputLabel value="#{usu.email}" />
+				</p:column>
+
+				<p:column headerText="Usuario">
+					<p:outputLabel value="#{usu.usuario}" />
+				</p:column>
+				<p:column headerText="Rol" >
+					<p:outputLabel value="#{usu.ID_ROL.nombre}" />
+				</p:column>
+				<p:column headerText="Fecha de nacimiento">
+					<p:outputLabel value="#{usu.fechaNacimiento}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</f:view>
+	
+	<div align="left">
+	
+	<p:button value="Volver a inicio" outcome="inicioPersonal" style="margin: 20px"></p:button>
+	
+	</div>	
+	
+</h:body>
+</html>

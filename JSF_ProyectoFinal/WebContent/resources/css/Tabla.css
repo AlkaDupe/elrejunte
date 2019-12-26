@@ -1,0 +1,24 @@
+
+body {
+    font-family: "Open Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333333;
+    font-size: 11px;
+    background-color: #f3f3f3;
+    padding: 0;
+    margin: 20px;
+    position: center;
+    
+
+    &.layout-scroll-block {
+        overflow: hidden;
+}
+
+h1 {
+    font-family: "Open Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h2 {
+    font-family: "Open Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+

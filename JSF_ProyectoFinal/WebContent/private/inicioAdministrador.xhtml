@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet library="css" name="IngresoForm.css" />
+</h:head>
+
+<body> 
+<div align="center">
+<p:graphicImage library="imagenes" name="logo.png" width="120"  />
+<h2>Bienvenido #{usuario.usuario}</h2>
+
+<p:button value="Ingreso Usuarios" outcome="ingresoUsuario"
+		id="link1" style="margin: 20px"></p:button>
+		
+		<p:button value="Ingreso Alimento" outcome="ingresoAlimento"
+		id="link2" style="margin: 20px"></p:button>
+</div>  
+
+<div align="center">
+<p:button value="Listar Usuarios" outcome="listarUsuarios"
+		id="link3" style="margin: 20px"></p:button>
+		
+		<p:button value="Listar Alimentos" outcome="listarAlimentos"
+		id="link4" style="margin: 20px"></p:button>
+		
+		<p:button value="Test Correo" outcome="envioMail" id="link5" style="margin: 20px"></p:button>
+		
+		</div>  
+
+	
+</body>
+
+</html>
