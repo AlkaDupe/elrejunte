@@ -22,12 +22,10 @@ public class wsUsuario {
 	public List<Usuario> getUsuarios(){
 		
 		List<Usuario> lista = null;
-
-		lista = ejb.obtenerTodosUsuarios();		
-	
-
-		return lista;	
 		
+		lista = ejb.obtenerTodosUsuarios();		
+		lista.size();
+		return lista;			
 	}
 	
 	
@@ -38,8 +36,4 @@ public class wsUsuario {
 		Usuario us = ejb.sessionWS(ci, password);
 		return us;
 	}
-	
-	
-	
-
 }

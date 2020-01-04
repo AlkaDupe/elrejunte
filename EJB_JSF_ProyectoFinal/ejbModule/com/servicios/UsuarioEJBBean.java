@@ -152,6 +152,8 @@ public class UsuarioEJBBean {
 	public List<Usuario> obtenerTodosUsuarios() {
 		TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u", Usuario.class);
 
+		
+		
 		return query.getResultList();
 	}
 

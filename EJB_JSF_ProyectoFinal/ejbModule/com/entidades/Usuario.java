@@ -13,9 +13,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 
 
 @Entity
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property="ID_USUARIO")
 @Table(name = "USUARIO")
 public class Usuario implements Serializable {
 
@@ -49,14 +54,15 @@ public class Usuario implements Serializable {
 
 	@JoinColumn(name = "ID_ROL", referencedColumnName = "ID_ROL")
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonBackReference
 	private Rol ID_ROL;
-
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "FECHA_NACIMIENTO")
 	private Date FechaNacimiento;
 
 	public Usuario() {
-		super();
+		
 	}
 
 	public Usuario(String ci, String nombre, String apellido, String genero, String contrasena, String email,
@@ -152,6 +158,6 @@ public class Usuario implements Serializable {
 
 	public void setID_ROL(Rol iD_ROL) {
 		ID_ROL = iD_ROL;
-	}	
+	}
 	
 }
