@@ -19,7 +19,6 @@
 
 			<h:panelGrid columns="1">
 				<h:outputStylesheet library="css" name="login.css" />
-
 				
 				<p:outputLabel for="txtUsuario" value="Usuario" />
 				<p:inputText id="txtUsuario" value="#{login.usuario.usuario}" required="true" />
@@ -30,7 +29,7 @@
 
 				<h:column />
 				
-				<p:commandLink value="Olvidé mi contraseña" process="@this" action="resetPasswordForm"></p:commandLink>
+				<p:commandLink value="Olvidé mi contraseña" process="@this" action="#{mailBean.ret()}"></p:commandLink>
 
 				<p:commandButton id="btnInicioSesion" icon="ui-icon-key"
 					value="Iniciar Sesión" action="#{login.iniciarSesion()}" ></p:commandButton>

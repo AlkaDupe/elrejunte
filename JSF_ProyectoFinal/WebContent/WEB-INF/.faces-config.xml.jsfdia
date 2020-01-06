@@ -13,9 +13,9 @@
     NAME="output1" PATH="/login/inicioPersonal.xhtml"
     TARGET="rules:#login#inicioPersonal.xhtml" TITLE="inicioPersonal" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="resetPasswordForm::#private#resetPasswordForm.xhtml"
-    NAME="output2" PATH="/private/resetPasswordForm.xhtml"
-    TARGET="rules:#private#resetPasswordForm.xhtml"
+    ID="resetPasswordForm::#login#resetPasswordForm.xhtml"
+    NAME="output2" PATH="/login/resetPasswordForm.xhtml"
+    TARGET="rules:#login#resetPasswordForm.xhtml"
     TITLE="resetPasswordForm" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
@@ -31,9 +31,6 @@
     TARGET="rules:#ingresoAlimento.xhtml" TITLE="ingresoAlimento" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="logout::#logout.xhtml" NAME="output2"
     PATH="/logout.xhtml" TARGET="rules:#logout.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="envioMail::#envioMail.xhtml" NAME="output3"
-    PATH="/envioMail.xhtml" TARGET="rules:#envioMail.xhtml"
-    TITLE="envioMail" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ingresoUsuario.xhtml"
@@ -58,12 +55,10 @@
   model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:#logout.xhtml" PATH="/logout.xhtml"
   SHAPE="728,288,50,25" model-entity="JSFProcessGroup" persistent="true"/>
- <PROCESS-ITEM NAME="rules:#envioMail.xhtml" PATH="/envioMail.xhtml"
-  SHAPE="624,40,50,25" model-entity="JSFProcessGroup" persistent="true"/>
- <PROCESS-ITEM NAME="rules:#private#resetPasswordForm.xhtml"
-  PATH="/private/resetPasswordForm.xhtml" SHAPE="336,72,50,25" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#private#resetPasswordForm.xhtml:0"
-   NAME="item" PATH="/private/resetPasswordForm.xhtml" model-entity="JSFProcessItem">
+ <PROCESS-ITEM NAME="rules:#login#resetPasswordForm.xhtml"
+  PATH="/login/resetPasswordForm.xhtml" SHAPE="208,56,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#login#resetPasswordForm.xhtml:0" NAME="item"
+   PATH="/login/resetPasswordForm.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="login::#login#login.xhtml" NAME="output"
     PATH="/login/login.xhtml" TARGET="rules:#login#login.xhtml"
     TITLE="login" model-entity="JSFProcessItemOutput"/>

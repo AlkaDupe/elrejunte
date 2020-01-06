@@ -34,8 +34,13 @@ public class MailBean implements Serializable{
 	public void setNombreUsuario(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
 	}
+	
+	public String ret() {
+		
+		return "/login/resetPasswordForm.xhtml";
+	}
 
-	public void enviarEmail() throws Exception {
+	public void enviarEmail() {
 
 		//Usuario s = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
 
@@ -48,8 +53,9 @@ public class MailBean implements Serializable{
 		String mailTo = "helpdesk.elrejunte@gmail.com";
 		String subject = "Solicitud de reinicio de contraseña";
 
-		// message contains HTML markups
-		String message = "<i>El usuario "+getNombreUsuario().trim()+" solicitó una nueva contraseña</i><br>";		
+		//  HTML
+		String message = "<i>El usuario "+nombreUsuario+" solicitó una nueva contraseña</i><br>";	
+		message += "<h4>Su correo electrónico es: "+correo+"<h4>";
 
 		MailService mail = new MailService();
 
@@ -60,6 +66,7 @@ public class MailBean implements Serializable{
 					new FacesMessage(FacesMessage.SEVERITY_INFO, "Correcto", "Email enviado"));
 
 		} catch (Exception ex) {
+			System.out.println("Error");
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "El Email no ha sido enviado, compruebe el correo elecrtónico"));
 		}
