@@ -35,8 +35,6 @@ public class UsuarioBean {
 	 * Getters y setters
 	 */
 
-	
-	
 	public Long getId() {
 		return id;
 	}
@@ -171,20 +169,19 @@ public class UsuarioBean {
 
 			// Método para controlar CI duplicadas en base de datos
 			List<Usuario> lista = UsuarioEJBBean.obtenerCIUsuario(ci);
-			
-			List <Usuario> lista2 = UsuarioEJBBean.obtenerUserUsuario(usuario);
 
-			// Si las listas están vacias quiere decir que el CI O el Usuario ingresado no está registrado en
+			List<Usuario> lista2 = UsuarioEJBBean.obtenerUserUsuario(usuario);
+
+			// Si las listas están vacias quiere decir que el CI O el Usuario ingresado no
+			// está registrado en
 			// base de datos aún
-			
-			
-			
+
 			if (lista.isEmpty() && lista2.isEmpty()) {
 
 				UsuarioEJBBean.agregarUsuario(ci, nombre, apellido, genero, contrasena, usuario, email, r,
 						FechaNacimiento);
-				
-				//limpio el formulario luego de ingresar registros
+
+				// limpio el formulario luego de ingresar registros
 				limpiar();
 
 			} else {
@@ -200,7 +197,7 @@ public class UsuarioBean {
 			return e.getMessage();
 		}
 	}
-	
+
 	public String crearUsuarioPersonal() {
 
 		// Creo nueva instancia de Rol
@@ -234,8 +231,8 @@ public class UsuarioBean {
 
 			// Método para controlar CI duplicadas en base de datos
 			List<Usuario> lista = UsuarioEJBBean.obtenerCIUsuario(ci);
-			
-			List <Usuario> lista2 = UsuarioEJBBean.obtenerUserUsuario(usuario);
+
+			List<Usuario> lista2 = UsuarioEJBBean.obtenerUserUsuario(usuario);
 
 			// Si la lista está vacia quiere decir que el CI ingresado no está registrado en
 			// base de datos aún
@@ -243,8 +240,8 @@ public class UsuarioBean {
 
 				UsuarioEJBBean.agregarUsuario(ci, nombre, apellido, genero, contrasena, usuario, email, r,
 						FechaNacimiento);
-				
-				//limpio el formulario luego de insertar registros
+
+				// limpio el formulario luego de insertar registros
 				limpiar();
 
 			} else {
@@ -262,109 +259,100 @@ public class UsuarioBean {
 
 	}
 
-	public void modificarUsuario() throws Exception{		
+	public void modificarUsuario() throws Exception {
 
-		
-		//Instancia nueva de Rol
+		// Instancia nueva de Rol
 		Rol r = new Rol();
-		
+
 		try {
-			
+
 			/*
 			 * Dependiendo de qué rol sea, asigno el id correspondiente
-			 * 
-			 * 
-			 * 
-			 * */
-		
-			if(user.getID_ROL().getNombre().equals("ADMINISTRADOR")) {
-				
-				r.setId((long) 1);				
-				
-				
-			} else if(user.getID_ROL().getNombre().equals("USUARIO")) {
-				
-				r.setId((long) 2);
-				
-			} else {
-				
-				r.setId((long) 3);
-				
-			}
-			
-			//seteo el rol a la variable
-			user.setID_ROL(r);
-			
-			
-			//obtengo nombre
-			String getName = user.getNombre().trim().toLowerCase();
-			
-			//obtengo apellido
-			String getApellido = user.getApellido().trim().toLowerCase();
-			
-			//concateno las 2 variables para formar el nombre de usuario
-			String concat = getName.concat("." + getApellido);
-						
-			//seteo la variable
-			user.setUsuario(concat);
-			
+			 */ 
+			  
+			  
+			 
 
-			//actualizo
-			
-			UsuarioEJBBean.Actualizar(user);		
-				
-				RequestContext req = RequestContext.getCurrentInstance();
-				req.execute("PF('wdgDatos').hide();");				
-				
-				
-			//
-			
-			//y refresco la lista de usuarios
+			if (user.getID_ROL().getNombre().equals("ADMINISTRADOR")) {
+
+				r.setId((long) 1);
+
+			} else if (user.getID_ROL().getNombre().equals("USUARIO")) {
+
+				r.setId((long) 2);
+
+			} else {
+
+				r.setId((long) 3);
+
+			}
+
+			// seteo el rol a la variable
+			user.setID_ROL(r);
+
+			// obtengo nombre
+			String getName = user.getNombre().trim().toLowerCase();
+
+			// obtengo apellido
+			String getApellido = user.getApellido().trim().toLowerCase();
+
+			// concateno las 2 variables para formar el nombre de usuario
+			String concat = getName.concat("." + getApellido);
+
+			// seteo la variable
+			user.setUsuario(concat);
+
+			// actualizo
+
+			UsuarioEJBBean.Actualizar(user);
+
+			RequestContext req = RequestContext.getCurrentInstance();
+			req.execute("PF('wdgDatos').hide();");		
+
+			// y refresco la lista de usuarios
 			this.listaUsuarios();
-			
+
 		} catch (Exception e) {
 
-				throw e;
-				
-		}
-		
-		//llamamos al dialogo de actualización
-		mostrarDialogoA();
-		
-	}
-
-	public void borrarUsuario(Long id) throws Exception{
-
-		try {			
-
-			UsuarioEJBBean.borrar(id);
-			
-			this.listaUsuarios();
-			
-		} catch (Exception e) {			
-			
 			throw e;
 		}
-	}	
-	
+
+		// llamamos al dialogo de actualización
+		mostrarDialogoA();
+
+	}
+
+	public void borrarUsuario(Long id) throws Exception {
+
+		try {
+
+			UsuarioEJBBean.borrar(id);
+
+			this.listaUsuarios();
+
+		} catch (Exception e) {
+
+			throw e;
+		}
+	}
 
 	public void buscarPorCI(Usuario u) {
-		
+
 		try {
-			
+
 			Usuario temporal;
 			temporal = UsuarioEJBBean.leerid(u.getCi());
-			
+
 			// si la variable temporal es distinto de nulo igualamos el usuario al contenido
 			// de la misma
-			if(temporal != null) {
+			if (temporal != null) {
 				this.user = temporal;
 			}
-			
-		}catch(Exception e) {
-			
-			e.getMessage();		
-		}		
+
+		} catch (Exception e) {
+
+			e.getMessage();
+		}
 	}
 
 	public List<Usuario> listaUsuarios() {
@@ -374,59 +362,24 @@ public class UsuarioBean {
 		lista = UsuarioEJBBean.obtenerTodosUsuarios();
 
 		return lista;
-	}	
-	
-	//Dialogo que muestra el usuario actualizado
-	public void mostrarDialogoA(){
+	}
+
+	// Dialogo que muestra el usuario actualizado
+	public void mostrarDialogoA() {
 		RequestContext req = RequestContext.getCurrentInstance();
 		req.execute("PF('wuActualizado').show();");
-	}	
-	
-	//Metodo usado para limpiar el formulario
+	}
+
+	// Metodo usado para limpiar el formulario
 	public void limpiar() {
-		
+
 		setCi(null);
 		setNombre(null);
 		setApellido(null);
 		setEmail(null);
-		setFechaNacimiento(null);	
+		setFechaNacimiento(null);
 		setGenero("MASCULINO");
 		setRolNombre("ADMINISTRADOR");
-	}        
-	
-	public void enviarEmail() throws Exception{		
-	
-		
-		Usuario s = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");		
-		
-			
-			String host = "smtp.gmail.com";
-	        String port = "587";
-	        String mailFrom = "desarrollo@gsoftit.com.uy";
-	        String password = "e6c1bd145f";	 
-	        
-	        String mailTo = s.getEmail().trim();
-	        String subject = "Hola! "+s.getUsuario();
-	        
-	        // message contains HTML markups
-	        String message = "<i>Coso pum</i><br>";
-	        message += "<b>Correo de prueba para IMC (Beta) </b><br>";
-	        message += "<font color=red>Gabrielaso</font>";
-	        message += "<b>Tu correo electronico es: "+s.getEmail()+"</b>";
-	 
-	        MailService mail = new MailService();
-	 
-	        try {
-	            mail.sendHtmlEmail(host, port, mailFrom, password, mailTo,
-	                    subject, message);
-	            System.out.println("E-Mail enviado.");
-	            FacesContext.getCurrentInstance().addMessage(null,
-						new FacesMessage(FacesMessage.SEVERITY_INFO, "Correcto", "Mail enviado a la casilla de correo "+s.getEmail()));           
-	            
-	            
-	        } catch (Exception ex) {
-	        	FacesContext.getCurrentInstance().addMessage(null,
-						new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "El Email no ha sido enviado"));
-	        }       
 	}
+	
 }

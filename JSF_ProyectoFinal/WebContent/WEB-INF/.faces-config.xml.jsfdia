@@ -12,6 +12,11 @@
    <PROCESS-ITEM-OUTPUT ID="inicioPersonal::#login#inicioPersonal.xhtml"
     NAME="output1" PATH="/login/inicioPersonal.xhtml"
     TARGET="rules:#login#inicioPersonal.xhtml" TITLE="inicioPersonal" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="resetPasswordForm::#private#resetPasswordForm.xhtml"
+    NAME="output2" PATH="/private/resetPasswordForm.xhtml"
+    TARGET="rules:#private#resetPasswordForm.xhtml"
+    TITLE="resetPasswordForm" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#login#inicioAdministrador.xhtml"
@@ -55,4 +60,13 @@
   SHAPE="728,288,50,25" model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:#envioMail.xhtml" PATH="/envioMail.xhtml"
   SHAPE="624,40,50,25" model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#private#resetPasswordForm.xhtml"
+  PATH="/private/resetPasswordForm.xhtml" SHAPE="336,72,50,25" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#private#resetPasswordForm.xhtml:0"
+   NAME="item" PATH="/private/resetPasswordForm.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="login::#login#login.xhtml" NAME="output"
+    PATH="/login/login.xhtml" TARGET="rules:#login#login.xhtml"
+    TITLE="login" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>

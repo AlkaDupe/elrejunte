@@ -11,6 +11,10 @@
    <from-outcome>inicioPersonal</from-outcome>
    <to-view-id>/login/inicioPersonal.xhtml</to-view-id>
   </navigation-case>
+  <navigation-case>
+   <from-outcome>resetPasswordForm</from-outcome>
+   <to-view-id>/private/resetPasswordForm.xhtml</to-view-id>
+  </navigation-case>
  </navigation-rule>
  <navigation-rule>
   <from-view-id>/login/inicioAdministrador.xhtml</from-view-id>
@@ -44,6 +48,13 @@
   <navigation-case>
    <from-outcome>logout</from-outcome>
    <to-view-id>/logout.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/private/resetPasswordForm.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>login</from-outcome>
+   <to-view-id>/login/login.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
  <application/>
