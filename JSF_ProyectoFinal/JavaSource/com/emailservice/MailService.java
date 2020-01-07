@@ -1,6 +1,6 @@
 package com.emailservice;
 
-import java.io.Serializable;
+
 import java.util.Date;
 import java.util.Properties;
 

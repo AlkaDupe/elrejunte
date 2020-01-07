@@ -1,12 +1,16 @@
 package com.beans;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import com.emailservice.MailService;
+import com.entidades.Usuario;
+import com.servicios.UsuarioEJBBean;
 
 
 @SuppressWarnings("deprecation")
@@ -15,6 +19,9 @@ import com.emailservice.MailService;
 public class MailBean implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
+	
+	@EJB
+	private UsuarioEJBBean ejb;
 	
 	private String correo;
 	private String nombreUsuario;	
@@ -55,9 +62,16 @@ public class MailBean implements Serializable{
 
 		//  HTML
 		String message = "<i>El usuario "+nombreUsuario+" solicitó una nueva contraseña</i><br>";	
-		message += "<h4>Su correo electrónico es: "+correo+"<h4>";
+		message += "<h4>Su correo electrónico de contacto es: "+correo+"<h4>";
+		message += "<img src=\"C:Users/Gabriel/GitElRejunte/JSF_ProyectoFinal/WebContent/resources/imagenes/ItSupport.jpg\">";		
+	
 
 		MailService mail = new MailService();
+		
+		List<Usuario> us = ejb.obtenerUserUsuario(nombreUsuario);
+		
+		if(!us.isEmpty()) {			
+	
 
 		try {
 			mail.sendHtmlEmail(host, port, mailFrom, password, mailTo, subject, message);
@@ -70,6 +84,15 @@ public class MailBean implements Serializable{
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "El Email no ha sido enviado, compruebe el correo elecrtónico"));
 		}
+		
+	}else {
+		FacesContext.getCurrentInstance().addMessage(null,
+				new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "El usuario no existe en el sistema, compruebe su nombre de usuario"));
+		return;
 	}
+		
+	}
+	
+	
 	
 }
