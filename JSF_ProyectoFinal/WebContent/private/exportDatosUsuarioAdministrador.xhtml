@@ -20,7 +20,30 @@
 	<f:view>
 		<h:form id="form">
 
-		<p:growl id="mensajes" autoUpdate="true"/>		
+		<p:growl id="mensajes" autoUpdate="true"/>
+		
+		<div align="right">
+				<h3>Exportar Datos (XLS - PDF - CSV)</h3>
+				<h:commandLink>
+					<p:graphicImage library="imagenes" name="xls1.png" />
+					<p:dataExporter type="xls" target="tblPersonas"
+						fileName="usuarios-el-rejunte" pageOnly="false" />
+				</h:commandLink>
+
+				<h:commandLink>
+					<p:graphicImage library="imagenes" name="pdf.png" />
+					<p:dataExporter type="pdf" target="tblPersonas"
+						fileName="usuarios-el-rejunte" pageOnly="false" />
+				</h:commandLink>
+
+				<h:commandLink>
+					<p:graphicImage library="imagenes" name="cvs2.png" />
+					<p:dataExporter type="csv" target="tblPersonas"
+						fileName="usuarios-el-rejunte" pageOnly="false" />
+				</h:commandLink>
+
+			</div>
+
 
 			<p:dataTable id="tblPersonas" value="#{usuarioBean.listaUsuarios()}" emptyMessage="No existen datos que coincidan con el filtro" 
 					rowsPerPageTemplate="5, 10, 15" rows="10" paginator="true" resizableColumns="true"
@@ -62,10 +85,32 @@
 					<p:outputLabel value="#{usu.fechaNacimiento}" />
 				</p:column>
 			</p:dataTable>
+			
+			<div align="left">
+				<h3>Exportar Datos de página actual (XLS - PDF - CSV)</h3>
+				<h:commandLink>
+					<p:graphicImage library="imagenes" name="xls1.png" />
+					<p:dataExporter type="xls" target="tblPersonas"
+						fileName="usuarios-el-rejunte" pageOnly="true" />
+				</h:commandLink>
+
+				<h:commandLink>
+					<p:graphicImage library="imagenes" name="pdf.png" />
+					<p:dataExporter type="pdf" target="tblPersonas"
+						fileName="usuarios-el-rejunte" pageOnly="true" />
+				</h:commandLink>
+
+				<h:commandLink>
+					<p:graphicImage library="imagenes" name="cvs2.png" />
+					<p:dataExporter type="csv" target="tblPersonas"
+						fileName="usuarios-el-rejunte" pageOnly="true" />
+				</h:commandLink>
+
+			</div>
 		</h:form>
 	</f:view>
 	
-	<div align="left">
+	<div align="center">
 	
 	<p:button value="Volver a inicio" outcome="inicioPersonal" style="margin: 20px"></p:button>
 	

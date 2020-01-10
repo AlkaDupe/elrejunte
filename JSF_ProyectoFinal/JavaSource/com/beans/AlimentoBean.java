@@ -28,6 +28,7 @@ public class AlimentoBean {
 	private Alimento al;	
 	private String idUsuario = "0";
 	
+	
 
 	public Long getId() {
 		return id;
@@ -250,12 +251,14 @@ public void buscarPorCI(Alimento a) {
 
 	public List<Alimento> listaAlimentos() {
 
-		List<Alimento> lista = null;
-
-		lista = alimentoEJBBean.obtenerTodosAlimentos();
-
+		List<Alimento> lista = alimentoEJBBean.obtenerTodosAlimentos();			
+		
+		if (lista == null) {
+			lista = alimentoEJBBean.obtenerTodosAlimentos();
+		}		
+		
 		return lista;
-
+		
 	}
 	//Dialogo para mostrar confirmación en la actualización
 	public void mostrarDialogoA(){

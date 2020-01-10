@@ -21,10 +21,8 @@ public class wsUsuario {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Usuario> getUsuarios(){
 		
-		List<Usuario> lista = null;
+		List<Usuario> lista = ejb.obtenerTodosUsuarios();		
 		
-		lista = ejb.obtenerTodosUsuarios();		
-		lista.size();
 		return lista;			
 	}
 	

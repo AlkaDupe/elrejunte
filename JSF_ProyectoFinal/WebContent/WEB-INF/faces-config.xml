@@ -27,8 +27,12 @@
    <to-view-id>/ingresoAlimento.xhtml</to-view-id>
   </navigation-case>
   <navigation-case>
-   <from-outcome>logout</from-outcome>
-   <to-view-id>/logout.xhtml</to-view-id>
+   <from-outcome>exportDatosAlimentoAdministrador</from-outcome>
+   <to-view-id>/private/exportDatosAlimentoAdministrador.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>exportDatosUsuarioAdministrador</from-outcome>
+   <to-view-id>/private/exportDatosUsuarioAdministrador.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
  <navigation-rule>
@@ -42,8 +46,12 @@
    <to-view-id>/ingresoAlimento.xhtml</to-view-id>
   </navigation-case>
   <navigation-case>
-   <from-outcome>logout</from-outcome>
-   <to-view-id>/logout.xhtml</to-view-id>
+   <from-outcome>exportDatosUsuarioPersonal</from-outcome>
+   <to-view-id>/private/exportDatosUsuarioPersonal.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>exportDatosAlimentoPersonal</from-outcome>
+   <to-view-id>/private/exportDatosAlimentoPersonal.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
  <navigation-rule>

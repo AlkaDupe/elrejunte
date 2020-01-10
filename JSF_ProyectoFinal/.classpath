@@ -17,5 +17,8 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/primefaces-6.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/all-themes-1.0.10.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/com.fasterxml.jackson.core.jackson-annotations_2.9.2.v20180207-1730.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/poi-ooxml-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/poi-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/com.lowagie.text-2.1.7.jar"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>

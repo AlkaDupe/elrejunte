@@ -20,7 +20,7 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#login#inicioAdministrador.xhtml"
-  PATH="/login/inicioAdministrador.xhtml" SHAPE="400,176,50,57" model-entity="JSFProcessGroup">
+  PATH="/login/inicioAdministrador.xhtml" SHAPE="544,192,50,89" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#login#inicioAdministrador.xhtml:0"
    NAME="item" PATH="/login/inicioAdministrador.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="ingresoUsuario::#ingresoUsuario.xhtml"
@@ -29,15 +29,24 @@
    <PROCESS-ITEM-OUTPUT ID="ingresoAlimento::#ingresoAlimento.xhtml"
     NAME="output1" PATH="/ingresoAlimento.xhtml"
     TARGET="rules:#ingresoAlimento.xhtml" TITLE="ingresoAlimento" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="logout::#logout.xhtml" NAME="output2"
-    PATH="/logout.xhtml" TARGET="rules:#logout.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="exportDatosAlimentoAdministrador::#private#exportDatosAlimentoAdministrador.xhtml"
+    NAME="output3"
+    PATH="/private/exportDatosAlimentoAdministrador.xhtml"
+    TARGET="rules:#private#exportDatosAlimentoAdministrador.xhtml"
+    TITLE="exportDatosAlimentoAdministrador" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="exportDatosUsuarioAdministrador::#private#exportDatosUsuarioAdministrador.xhtml"
+    NAME="output4" PATH="/private/exportDatosUsuarioAdministrador.xhtml"
+    TARGET="rules:#private#exportDatosUsuarioAdministrador.xhtml"
+    TITLE="exportDatosUsuarioAdministrador" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ingresoUsuario.xhtml"
-  PATH="/ingresoUsuario.xhtml" SHAPE="680,128,50,25"
+  PATH="/ingresoUsuario.xhtml" SHAPE="800,296,50,25"
   model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:#login#inicioPersonal.xhtml"
-  PATH="/login/inicioPersonal.xhtml" SHAPE="400,256,50,41" model-entity="JSFProcessGroup">
+  PATH="/login/inicioPersonal.xhtml" SHAPE="224,384,50,73" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#login#inicioPersonal.xhtml:0" NAME="item"
    PATH="/login/inicioPersonal.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="ingresoUsuario::#ingresoUsuario.xhtml"
@@ -46,17 +55,23 @@
    <PROCESS-ITEM-OUTPUT ID="ingresoAlimento::#ingresoAlimento.xhtml"
     NAME="output1" PATH="/ingresoAlimento.xhtml"
     TARGET="rules:#ingresoAlimento.xhtml" TITLE="ingresoAlimento" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="logout::#logout.xhtml" NAME="output2"
-    PATH="/logout.xhtml" TARGET="rules:#logout.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="exportDatosUsuarioPersonal::#private#exportDatosUsuarioPersonal.xhtml"
+    NAME="output2" PATH="/private/exportDatosUsuarioPersonal.xhtml"
+    TARGET="rules:#private#exportDatosUsuarioPersonal.xhtml"
+    TITLE="exportDatosUsuarioPersonal" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="exportDatosAlimentoPersonal::#private#exportDatosAlimentoPersonal.xhtml"
+    NAME="output3" PATH="/private/exportDatosAlimentoPersonal.xhtml"
+    TARGET="rules:#private#exportDatosAlimentoPersonal.xhtml"
+    TITLE="exportDatosAlimentoPersonal" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ingresoAlimento.xhtml"
-  PATH="/ingresoAlimento.xhtml" SHAPE="656,376,50,25"
+  PATH="/ingresoAlimento.xhtml" SHAPE="808,344,50,25"
   model-entity="JSFProcessGroup" persistent="true"/>
- <PROCESS-ITEM NAME="rules:#logout.xhtml" PATH="/logout.xhtml"
-  SHAPE="728,288,50,25" model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:#login#resetPasswordForm.xhtml"
-  PATH="/login/resetPasswordForm.xhtml" SHAPE="208,56,50,41" model-entity="JSFProcessGroup">
+  PATH="/login/resetPasswordForm.xhtml" SHAPE="104,64,50,41" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#login#resetPasswordForm.xhtml:0" NAME="item"
    PATH="/login/resetPasswordForm.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="login::#login#login.xhtml" NAME="output"
@@ -64,4 +79,18 @@
     TITLE="login" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#private#exportDatosAlimentoAdministrador.xhtml"
+  PATH="/private/exportDatosAlimentoAdministrador.xhtml"
+  SHAPE="864,104,50,25" model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM
+  NAME="rules:#private#exportDatosUsuarioAdministrador.xhtml"
+  PATH="/private/exportDatosUsuarioAdministrador.xhtml"
+  SHAPE="864,152,50,25" model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#private#exportDatosUsuarioPersonal.xhtml"
+  PATH="/private/exportDatosUsuarioPersonal.xhtml" SHAPE="592,448,50,25"
+  model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#private#exportDatosAlimentoPersonal.xhtml"
+  PATH="/private/exportDatosAlimentoPersonal.xhtml"
+  SHAPE="600,496,50,25" model-entity="JSFProcessGroup" persistent="true"/>
 </PROCESS>

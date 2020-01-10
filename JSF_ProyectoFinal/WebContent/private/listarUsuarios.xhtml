@@ -18,38 +18,45 @@
 	<f:view>
 		<h:form id="form">
 
-		<p:growl id="mensajes" autoUpdate="true"/>
-
-
+		<p:growl id="mensajes" autoUpdate="true"/>				
+	
 			<p:dataTable id="tblPersonas" value="#{usuarioBean.listaUsuarios()}" emptyMessage="No existen datos que coincidan con el filtro"
 				var="usu" rowsPerPageTemplate="5, 10, 15" rows="10" paginator="true" resizableColumns="true">
+				
 
-				<p:column headerText="CI" filterBy="#{usu.ci}"
+				<p:column headerText="CI" filterBy="#{usu.ci}" sortBy="#{usu.ci}"
 					filterMatchMode="contains">
 					<p:outputLabel value="#{usu.ci}" />
 				</p:column>
-				<p:column headerText="Nombre">
+				<p:column headerText="Nombre" filterBy="#{usu.nombre}" sortBy="#{usu.nombre}"
+				filterMatchMode="contains">
 					<p:outputLabel value="#{usu.nombre}" />
 				</p:column>
-				<p:column headerText="Apellido">
+				<p:column headerText="Apellido" filterBy="#{usu.apellido}" sortBy="#{usu.apellido}"
+				filterMatchMode="contains">
 					<p:outputLabel value="#{usu.apellido}" />
 				</p:column>
 
-				<p:column headerText="Género">
+				<p:column headerText="Género" filterBy="#{usu.genero}" sortBy="#{usu.genero}"
+				filterMatchMode="contains">
 					<p:outputLabel value="#{usu.genero}" />
 				</p:column>
 
-				<p:column headerText="Correo">
+				<p:column headerText="Correo" filterBy="#{usu.email}" sortBy="#{usu.email}"
+				filterMatchMode="contains">
 					<p:outputLabel value="#{usu.email}" />
 				</p:column>
-
-				<p:column headerText="Usuario">
+				
+				<p:column headerText="Usuario" filterBy="#{usu.usuario}" sortBy="#{usu.usuario}"
+				filterMatchMode="contains">
 					<p:outputLabel value="#{usu.usuario}" />
 				</p:column>
-				<p:column headerText="Rol">
+				<p:column headerText="Rol" filterBy="#{usu.ID_ROL.nombre}" sortBy="#{usu.ID_ROL.nombre}"
+				filterMatchMode="contains">				
 					<p:outputLabel value="#{usu.ID_ROL.nombre}" />
 				</p:column>
-				<p:column headerText="Fecha de nacimiento">
+				<p:column headerText="Fecha de nacimiento" filterBy="#{usu.fechaNacimiento}" sortBy="#{usu.fechaNacimiento}"
+				filterMatchMode="contains">
 					<p:outputLabel value="#{usu.fechaNacimiento}" />
 				</p:column>
 				<p:column headerText="Modificar">
@@ -66,9 +73,12 @@
 							icon="pi pi-exclamation-triangle"></p:confirm>
 					</p:commandButton>
 				</p:column>
-			</p:dataTable>
-			
-			<p:button value="Volver a inicio" outcome="inicioAdministrador" style="margin: 20px"></p:button>
+			</p:dataTable>   			
+		
+			<div align="center">    			
+			<p:button id="back" value="Volver a inicio" outcome="inicioAdministrador" style="margin: 20px" ></p:button>
+			</div>
+	
 		</h:form>
 	</f:view>
 	<h:form>
