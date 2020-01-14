@@ -9,35 +9,58 @@
 	<title>Login</title>
 </h:head>
 
-	<h:outputStylesheet library="css" name="login.css" />
-	<h:body>
-		<div align="center">
-		<p:graphicImage library="imagenes" name="logo.png" width="120"  />
+<h:outputStylesheet library="css" name="login.css" />
+<h:body>
+
+<div align="left">
+
+<p:commandButton icon="ui-icon-info" onclick="PF('dlg3').show();" process="@this" /> 
+
+</div>
+	<p:dialog header="Acerca de.." widgetVar="dlg3" showEffect="explode" resizable="false"
+		 height="100">
+		 
+		 
+	 
+	<h2>El Rejunte</h2>
+	<h4>Nutri UY Salud</h4>
+	<h5>Por cualquier duda o consulta</h5>
+	
+	<h5><a href="mailto:helpdesk.elrejunte@gmail.com">Contáctanos por correo</a></h5>
+	</p:dialog>	
+	
+
+	<div align="center">
+		<p:graphicImage library="imagenes" name="logo.png" width="120" />
 		<h3>INICIO DE SESIÓN</h3>
 		<h:form>
-			<p:messages autoUpdate="true" showDetail="false" closable="true"/>			
+			<p:messages autoUpdate="true" showDetail="false" closable="true" />
 
 			<h:panelGrid columns="1">
 				<h:outputStylesheet library="css" name="login.css" />
-				
-				<p:outputLabel for="txtUsuario" value="Usuario" />
-				<p:inputText id="txtUsuario" value="#{login.usuario.usuario}" required="true" />
 
-				
+				<p:outputLabel for="txtUsuario" value="Usuario" />
+				<p:inputText id="txtUsuario" value="#{login.usuario.usuario}"
+					required="true" />
+
+
 				<p:outputLabel for="txtContraseña" value="Contraseña" />
-				<p:password id="txtContraseña" value="#{login.usuario.contrasena}" required="true" />
+				<p:password id="txtContraseña" value="#{login.usuario.contrasena}"
+					required="true" />
 
 				<h:column />
-				
-				<p:commandLink value="Olvidé mi contraseña" process="@this" action="#{mailBean.ret()}"></p:commandLink>
+
+				<p:commandLink value="Olvidé mi contraseña" process="@this"
+					action="#{mailBean.ret()}"></p:commandLink>
 
 				<p:commandButton id="btnInicioSesion" icon="ui-icon-key"
-					value="Iniciar Sesión" action="#{login.iniciarSesion()}" ></p:commandButton>
+					value="Iniciar Sesión" action="#{login.iniciarSesion()}"></p:commandButton>
+
+				
 
 			</h:panelGrid>
-			
 
 		</h:form>
-		</div>
-	</h:body>
+	</div>
+</h:body>
 </html>
