@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+	<title>Ingreso Alimento</title>
+
+</h:head>
+
+<h:form id="crearAlimentoForm" class="form-horizontal">
+	<h:outputStylesheet library="css" name="IngresoForm.css" />
+	<p:messages autoUpdate="true" />
+	<div align="center">
+		<p:graphicImage library="imagenes" name="logo.png" width="100" />
+
+		<p:growl autoUpdate="true" showDetail="true" />
+
+		<h2>Ingreso IMC</h2>
+
+		<h:panelGrid columns="2" style="margin-bottom:2px" cellpadding="5">
+			<h3>Peso (K)</h3>
+			<p:inputNumber id="peso" decimalSeparator="." decimalPlaces="2"
+				value="#{imcBean.peso}" maxlength="6" required="true"
+				validatorMessage="Peso: El dato ingresado es menor a 0"
+				requiredMessage="Debe completar este campo: Peso">
+				<f:validateLongRange minimum="0" />
+			</p:inputNumber>
+
+			<h3>Altura (M)</h3>
+			<p:inputNumber id="altura" value="#{imcBean.altura}" maxlength="3"
+				placeholder="Ingrese la altura en metros" required="true"
+				decimalSeparator="." decimalPlaces="2"
+				validatorMessage="Altura: El dato ingresado es menor a 0"
+				requiredMessage="Debe completar este campo: Peso">
+				<f:validateLongRange minimum="0" />
+			</p:inputNumber>
+
+
+			<p:commandButton id="botonIMC" value="Ingresar IMC"
+				action="#{imcBean.IngresoIMC()}" icon="pi pi-save"></p:commandButton>
+
+
+		</h:panelGrid>
+
+
+
+	</div>
+
+</h:form>
+
+</html>

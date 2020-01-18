@@ -63,9 +63,7 @@ public class MailBean implements Serializable{
 		//  HTML
 		String message = "<i>El usuario "+nombreUsuario+" solicitó una nueva contraseña</i><br>";	
 		message += "<h4>Su correo electrónico de contacto es: "+correo+"<h4>";
-		message += "<img src=\"C:Users/Gabriel/GitElRejunte/JSF_ProyectoFinal/WebContent/resources/imagenes/ItSupport.jpg\">";		
-	
-
+		
 		MailService mail = new MailService();
 		
 		List<Usuario> us = ejb.obtenerUserUsuario(nombreUsuario);

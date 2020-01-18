@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<p:graphicImage library="imagenes" name="logo2.png" width="150" />
+	<h:outputStylesheet library="css" name="Tabla.css" />
+	<p:messages autoUpdate="true" />
+
+	<h1>LISTA DE USUARIOS</h1>
+
+</h:head>
+
+<h:body>
+	<f:view>
+		<h:form id="form">
+			<p:growl id="mensajes" autoUpdate="true" />
+			
+			<div align="right">
+				<h3>Exportar Datos (XLS - PDF - CSV)</h3>
+				<h:commandLink>
+					<p:graphicImage library="imagenes" name="xls1.png" />
+					<p:dataExporter type="xls" target="tblIMC"
+						fileName="imc-el-rejunte" pageOnly="false" />
+				</h:commandLink>
+
+				<h:commandLink>
+					<p:graphicImage library="imagenes" name="pdf.png" />
+					<p:dataExporter type="pdf" target="tblIMC"
+						fileName="imc-el-rejunte" pageOnly="false" />
+				</h:commandLink>
+
+				<h:commandLink>
+					<p:graphicImage library="imagenes" name="cvs2.png" />
+					<p:dataExporter type="csv" target="tblIMC"
+						fileName="imc-el-rejunte" pageOnly="false" />
+				</h:commandLink>
+			</div>
+			
+			
+			<h2><p:outputLabel value="#{imcBean.estadoSalud()}" style="color: red"/></h2>
+			
+			<h3><p:outputLabel value="El estado se calcula en base al último registro del IMC"/></h3>
+			
+			
+			
+			<p:dataTable id="tblIMC" value="#{imcBean.listarIMC()}"
+				emptyMessage="No existen datos que coincidan con el filtro" var="imc"
+				rowsPerPageTemplate="5, 10, 15" rows="10" paginator="true"
+				resizableColumns="true">
+
+				<p:column headerText="Altura" filterBy="#{imc.altura}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{imc.altura} Metros" />
+				</p:column>
+				
+				<p:column headerText="Peso" filterBy="#{imc.peso}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{imc.peso}" />
+				</p:column>				
+				
+				<p:column headerText="Calculo IMC" filterBy="#{imc.calcImc}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{imc.calcImc}" />
+				</p:column>
+				
+				<p:column headerText="Fecha" filterBy="#{imc.fecha}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{imc.fecha}" />
+				</p:column>
+			</p:dataTable>	
+			
+			<p:button value="Volver a inicio" outcome="inicioUsuario" style="margin: 20px"></p:button>	
+			
+			
+		</h:form>
+	</f:view>
+</h:body>
+</html>

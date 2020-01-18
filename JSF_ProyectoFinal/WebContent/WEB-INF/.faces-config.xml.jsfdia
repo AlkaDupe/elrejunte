@@ -17,10 +17,13 @@
     NAME="output2" PATH="/login/resetPasswordForm.xhtml"
     TARGET="rules:#login#resetPasswordForm.xhtml"
     TITLE="resetPasswordForm" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="inicioUsuario::#private#inicioUsuario.xhtml"
+    NAME="output3" PATH="/private/inicioUsuario.xhtml"
+    TARGET="rules:#private#inicioUsuario.xhtml" TITLE="inicioUsuario" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#login#inicioAdministrador.xhtml"
-  PATH="/login/inicioAdministrador.xhtml" SHAPE="544,192,50,89" model-entity="JSFProcessGroup">
+  PATH="/login/inicioAdministrador.xhtml" SHAPE="560,112,50,89" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#login#inicioAdministrador.xhtml:0"
    NAME="item" PATH="/login/inicioAdministrador.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="ingresoUsuario::#ingresoUsuario.xhtml"
@@ -43,10 +46,10 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ingresoUsuario.xhtml"
-  PATH="/ingresoUsuario.xhtml" SHAPE="800,296,50,25"
+  PATH="/ingresoUsuario.xhtml" SHAPE="912,296,50,25"
   model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:#login#inicioPersonal.xhtml"
-  PATH="/login/inicioPersonal.xhtml" SHAPE="224,384,50,73" model-entity="JSFProcessGroup">
+  PATH="/login/inicioPersonal.xhtml" SHAPE="520,264,50,89" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#login#inicioPersonal.xhtml:0" NAME="item"
    PATH="/login/inicioPersonal.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="ingresoUsuario::#ingresoUsuario.xhtml"
@@ -68,7 +71,7 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ingresoAlimento.xhtml"
-  PATH="/ingresoAlimento.xhtml" SHAPE="808,344,50,25"
+  PATH="/ingresoAlimento.xhtml" SHAPE="920,336,50,25"
   model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:#login#resetPasswordForm.xhtml"
   PATH="/login/resetPasswordForm.xhtml" SHAPE="104,64,50,41" model-entity="JSFProcessGroup">
@@ -88,9 +91,41 @@
   PATH="/private/exportDatosUsuarioAdministrador.xhtml"
   SHAPE="864,152,50,25" model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:#private#exportDatosUsuarioPersonal.xhtml"
-  PATH="/private/exportDatosUsuarioPersonal.xhtml" SHAPE="592,448,50,25"
+  PATH="/private/exportDatosUsuarioPersonal.xhtml" SHAPE="776,424,50,25"
   model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:#private#exportDatosAlimentoPersonal.xhtml"
   PATH="/private/exportDatosAlimentoPersonal.xhtml"
-  SHAPE="600,496,50,25" model-entity="JSFProcessGroup" persistent="true"/>
+  SHAPE="736,496,50,25" model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#private#inicioUsuario.xhtml"
+  PATH="/private/inicioUsuario.xhtml" SHAPE="240,384,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#private#inicioUsuario.xhtml:0" NAME="item"
+   PATH="/private/inicioUsuario.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="ingresoIMCUsuario::#private#ingresoIMCUsuario.xhtml"
+    NAME="output" PATH="/private/ingresoIMCUsuario.xhtml"
+    TARGET="rules:#private#ingresoIMCUsuario.xhtml"
+    TITLE="ingresoIMCUsuario" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarIMC::#private#listarIMC.xhtml"
+    NAME="output1" PATH="/private/listarIMC.xhtml"
+    TARGET="rules:#private#listarIMC.xhtml" TITLE="listarIMC" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#private#ingresoIMCUsuario.xhtml"
+  PATH="/private/ingresoIMCUsuario.xhtml" SHAPE="408,352,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#private#ingresoIMCUsuario.xhtml:0"
+   NAME="item" PATH="/private/ingresoIMCUsuario.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="inicioUsuario::#private#inicioUsuario.xhtml"
+    NAME="output" PATH="/private/inicioUsuario.xhtml"
+    TARGET="rules:#private#inicioUsuario.xhtml" TITLE="inicioUsuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#private#listarIMC.xhtml"
+  PATH="/private/listarIMC.xhtml" SHAPE="456,464,50,25" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#private#listarIMC.xhtml:0" NAME="item"
+   PATH="/private/listarIMC.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="inicioUsuario::#private#inicioUsuario.xhtml"
+    NAME="output" PATH="/private/inicioUsuario.xhtml"
+    TARGET="rules:#private#inicioUsuario.xhtml" TITLE="inicioUsuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>

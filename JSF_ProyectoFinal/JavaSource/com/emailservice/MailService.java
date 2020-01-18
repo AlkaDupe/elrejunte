@@ -46,8 +46,7 @@ public class MailService  {
         msg.setSubject(subject);
         msg.setSentDate(new Date());
         // set plain text message
-        msg.setContent(message, "text/html");
- 
+        msg.setContent(message, "text/html"); 
         // sends the e-mail
         Transport.send(msg);
     } 
