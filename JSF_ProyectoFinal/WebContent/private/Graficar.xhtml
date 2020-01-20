@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+
+<h:head>
+
+<script type="text/javascript">
+    //<![CDATA[
+function exportChart() {
+    //export image
+    $('#output').empty().append(PF('chart').exportAsImage());
+ 
+    //show the dialog
+    PF('dlg').show();
+}
+    //]]>
+</script>
+
+</h:head>
+<h:outputStylesheet library="css" name="grafica.css" />
+
+<body>
+	<div align="center">
+		<h2 style="color: red">Evolución de IMC</h2>
+	</div>
+
+	<h:form id="graficoImc">
+
+		<div align="center">
+			<p:poll interval="1" update="grafico" />
+			<p:chart id="grafico" type="line" model="#{chart.linemodel}" widgetVar="chart"
+				style="height:500px; width:880px"></p:chart>
+		</div>
+	</h:form>
+
+	<p:separator />
+
+	<div align="center">
+		<p:button outcome="inicioUsuario" value="Volver a inicio"
+			style="margin: 20px"></p:button>
+	</div>
+	
+	<p:commandButton type="button" value="Export" icon="pi pi-home" onclick="exportChart()"/>
+
+	<p:dialog widgetVar="dlg" modal="true" header="Exportar IMC" draggable="false" resizable="false" position="false">
+    <p:outputPanel id="output" layout="block"/>
+	</p:dialog>
+
+
+</body>
+</html>

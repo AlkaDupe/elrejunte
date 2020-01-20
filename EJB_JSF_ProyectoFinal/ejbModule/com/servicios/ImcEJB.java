@@ -39,6 +39,14 @@ public class ImcEJB {
     	
     	return query.getResultList();
     }
+    
+    public List<Imc> historicoAscendente (Usuario u){
+    	TypedQuery<Imc> query = em.createQuery("SELECT i FROM Imc i where USUARIO_ID = :u ORDER BY fecha ASC", Imc.class);
+    	
+    	query.setParameter("u", u); 
+    	
+    	return query.getResultList();
+    }
     public List<Imc> historicoId (long id){
     	TypedQuery<Imc> query = em.createQuery("SELECT i FROM Imc i where USUARIO_ID.id = :id ORDER BY fecha DESC",Imc.class);
     	query.setParameter("id", id);

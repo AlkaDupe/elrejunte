@@ -75,6 +75,10 @@
    <from-outcome>listarIMC</from-outcome>
    <to-view-id>/private/listarIMC.xhtml</to-view-id>
   </navigation-case>
+  <navigation-case>
+   <from-outcome>Graficar</from-outcome>
+   <to-view-id>/private/Graficar.xhtml</to-view-id>
+  </navigation-case>
  </navigation-rule>
  <navigation-rule>
   <from-view-id>/private/ingresoIMCUsuario.xhtml</from-view-id>
@@ -85,6 +89,13 @@
  </navigation-rule>
  <navigation-rule>
   <from-view-id>/private/listarIMC.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>inicioUsuario</from-outcome>
+   <to-view-id>/private/inicioUsuario.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/private/Graficar.xhtml</from-view-id>
   <navigation-case>
    <from-outcome>inicioUsuario</from-outcome>
    <to-view-id>/private/inicioUsuario.xhtml</to-view-id>

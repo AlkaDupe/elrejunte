@@ -108,10 +108,13 @@
    <PROCESS-ITEM-OUTPUT ID="listarIMC::#private#listarIMC.xhtml"
     NAME="output1" PATH="/private/listarIMC.xhtml"
     TARGET="rules:#private#listarIMC.xhtml" TITLE="listarIMC" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="Graficar::#private#Graficar.xhtml"
+    NAME="output2" PATH="/private/Graficar.xhtml"
+    TARGET="rules:#private#Graficar.xhtml" TITLE="Graficar" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#private#ingresoIMCUsuario.xhtml"
-  PATH="/private/ingresoIMCUsuario.xhtml" SHAPE="408,352,50,41" model-entity="JSFProcessGroup">
+  PATH="/private/ingresoIMCUsuario.xhtml" SHAPE="400,352,50,41" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#private#ingresoIMCUsuario.xhtml:0"
    NAME="item" PATH="/private/ingresoIMCUsuario.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="inicioUsuario::#private#inicioUsuario.xhtml"
@@ -120,9 +123,18 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#private#listarIMC.xhtml"
-  PATH="/private/listarIMC.xhtml" SHAPE="456,464,50,25" model-entity="JSFProcessGroup">
+  PATH="/private/listarIMC.xhtml" SHAPE="400,480,50,41" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#private#listarIMC.xhtml:0" NAME="item"
    PATH="/private/listarIMC.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="inicioUsuario::#private#inicioUsuario.xhtml"
+    NAME="output" PATH="/private/inicioUsuario.xhtml"
+    TARGET="rules:#private#inicioUsuario.xhtml" TITLE="inicioUsuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#private#Graficar.xhtml"
+  PATH="/private/Graficar.xhtml" SHAPE="544,400,50,25" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#private#Graficar.xhtml:0" NAME="item"
+   PATH="/private/Graficar.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="inicioUsuario::#private#inicioUsuario.xhtml"
     NAME="output" PATH="/private/inicioUsuario.xhtml"
     TARGET="rules:#private#inicioUsuario.xhtml" TITLE="inicioUsuario" model-entity="JSFProcessItemOutput"/>
