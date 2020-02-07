@@ -26,6 +26,7 @@
 				maxlength="20"
 				validatorMessage="Formato incorrecto en campo CI. sin espacios y sólo números">
 				<f:validateRegex pattern="^\d+(\-\d+)*$"></f:validateRegex>
+				<f:validateLength maximum="20"/>
 			</p:inputText>
 
 
@@ -37,8 +38,9 @@
 			<p:inputText id="nombre" value="#{usuarioBean.nombre}" required="true"
 				requiredMessage="Este campo es obligatorio: Nombre"
 				maxlength="50"
-				validatorMessage="Sólo ingrese su primer nombre sin espacio y sólo letras">
+				validatorMessage="Sólo ingrese su primer nombre sin espacios y sin números">
 				<f:validateRegex pattern="^[a-zA-Z\u00C0-\u017F]*$"></f:validateRegex>
+				<f:validateLength maximum="50"/>
 			</p:inputText>
 
 			<!--				Apellido												-->
@@ -46,8 +48,9 @@
 			<p:inputText id="apellido" value="#{usuarioBean.apellido}"
 				required="true" maxlength="50"
 				requiredMessage="Este campo es obligatorio: Apellido"
-				validatorMessage="Solo ingrese su primer apellido sin espacios">
+				validatorMessage="Solo ingrese su primer apellido sin espacios y sin números">
 				<f:validateRegex pattern="^[a-zA-Z\u00C0-\u017F]*$"></f:validateRegex>
+				<f:validateLength maximum="50"/>
 			</p:inputText>
 
 			<!--			Género									-->
@@ -80,6 +83,7 @@
 				validatorMessage="El formato del mail ingresado es incorrecto">
 				<f:validateRegex
 					pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"></f:validateRegex>
+					<f:validateLength maximum="50"/>
 			</p:inputText>
 
 

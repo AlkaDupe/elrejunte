@@ -25,7 +25,10 @@
 			<p:inputText id="nombre" value="#{alimentoBean.nombre}"
 				required="true" maxlength="200"
 				style="text-transform:uppercase;"								
-				requiredMessage="Este campo es obligatorio: Nombre">				
+				requiredMessage="Este campo es obligatorio: Nombre"
+				validatorMessage="Nombre: Ingrese sólo letras">	
+				<f:validateRegex pattern="^[a-zA-Z\s]*$"></f:validateRegex>
+				<f:validateLength maximum="200"/>			
 			</p:inputText>
 
 			<h4>Valor por Porción:</h4>

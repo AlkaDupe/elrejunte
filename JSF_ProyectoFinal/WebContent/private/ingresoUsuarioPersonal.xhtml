@@ -24,9 +24,10 @@
 			<!--				CI												-->
 			<h4>CI</h4>
 			<p:inputText id="ci" value="#{usuarioBean.ci}" required="true"
-				requiredMessage="Este campo es obligatorio: CI"
+				requiredMessage="Este campo es obligatorio: CI" maxlength="20"
 				validatorMessage="Formato incorrecto en campo CI: Sin espacios y sólo números">
 				<f:validateRegex pattern="^\d+(\-\d+)*$"></f:validateRegex>
+				<f:validateLength maximum="20"/>
 			</p:inputText>
 
 
@@ -36,18 +37,20 @@
 
 			<h4>Nombre</h4>
 			<p:inputText id="nombre" value="#{usuarioBean.nombre}" required="true"
-				requiredMessage="Este campo es obligatorio: Nombre"
-				validatorMessage="Sólo ingrese su primer nombre sin espacios">
+				requiredMessage="Este campo es obligatorio: Nombre" maxlength="50"
+				validatorMessage="Sólo ingrese su primer nombre sin espacios y sin números">
 				<f:validateRegex pattern="^[a-zA-Z\u00C0-\u017F]*$"></f:validateRegex>
+				<f:validateLength maximum="50"/>
 			</p:inputText>
 
 			<!--				Apellido												-->
 			<h4>Apellido</h4>
 			<p:inputText id="apellido" value="#{usuarioBean.apellido}"
-				required="true"
+				required="true" maxlength="50"
 				requiredMessage="Este campo es obligatorio: Apellido"
-				validatorMessage="Solo ingrese su primer apellido sin espacios">
+				validatorMessage="Solo ingrese su primer apellido sin espacios y sin números">
 				<f:validateRegex pattern="^[a-zA-Z\u00C0-\u017F]*$"></f:validateRegex>
+				<f:validateLength maximum="50"/>
 			</p:inputText>
 
 			<!--			Género									-->
@@ -74,11 +77,11 @@
 
 			<h4>Email</h4>
 			<p:inputText id="email" value="#{usuarioBean.email}" required="true"
-				requiredMessage="Este campo es obligatorio: Email"
-				title="El mail cabeza"
+				requiredMessage="Este campo es obligatorio: Email" maxlength="50"	
 				validatorMessage="El formato del mail ingresado es incorrecto">
 				<f:validateRegex
 					pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"></f:validateRegex>
+					<f:validateLength maximum="50"/>
 			</p:inputText>
 
 
